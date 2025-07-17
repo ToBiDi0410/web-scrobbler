@@ -128,7 +128,7 @@ export default class GitHubScrobbler extends BaseScrobbler<'GitHub'> {
                 Promise.all(promises),
             );
             for (const response of responses) {
-                if (response.status !== 200) {
+                if (response.status !== 201) {
                     this.debugLog(`Error in ${response.url}.`, 'error');
                     return ServiceCallResult.ERROR_OTHER;
                 }
