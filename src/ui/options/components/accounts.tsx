@@ -81,6 +81,18 @@ const scrobblerArrayPropertiesMap = {
 			placeholder: 'accountsUserApiUrlPlaceholder',
 		},
 	},
+	GitHub: {
+		applicationName: {
+			type: 'text',
+			title: 'accountsGitHubRepository',
+			placeholder: 'accountsGitHubRepositoryPlaceholder',
+		},
+		userApiUrl: {
+			type: 'password',
+			title: 'accountsGitHubPAT',
+			placeholder: 'accountsGitHubPATPlaceholder',
+		},
+	},
 };
 
 /**
@@ -95,6 +107,7 @@ export default function Accounts() {
 			<ScrobblerDisplay label="ListenBrainz" />
 			<ScrobblerDisplay label="Maloja" />
 			<ScrobblerDisplay label="Webhook" />
+			<ScrobblerDisplay label="GitHub" />
 			<ScrobblerDisplay label="Pleroma" />
 		</>
 	);
@@ -407,10 +420,11 @@ function ArrayProperties(props: { scrobbler: Scrobbler | null }) {
 									>
 										<DeleteOutlined />
 									</button>
-									<For each={Object.values(item)}>
-										{(val) => (
+									<For each={Object.entries(item)}>
+										{([key, val]) => (
 											<span class={styles.arrayProp}>
-												{val}
+												{//@ts-ignore
+													scrobblerArrayPropertiesMap[narrowedLabel()][key].type == 'password' ? val.replace(/./g, '*') : val}
 											</span>
 										)}
 									</For>

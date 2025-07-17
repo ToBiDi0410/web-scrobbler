@@ -62,6 +62,13 @@ export type WebhookModel = {
 	}[];
 };
 
+export type GitHubModel = {
+	arrayProperties?: {
+		applicationName: string;
+		userApiUrl: string;
+	}[];
+};
+
 export type ArrayProperty = {
 	applicationName: string;
 	userApiUrl: string;
@@ -76,6 +83,7 @@ export interface ScrobblerModels {
 	Maloja?: Properties;
 	Webhook?: WebhookModel;
 	Pleroma?: Properties;
+	GitHub: GitHubModel;
 }
 
 export interface ManagerTab {

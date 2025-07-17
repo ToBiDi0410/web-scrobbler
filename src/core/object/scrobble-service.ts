@@ -12,6 +12,7 @@ import type ClonedSong from './cloned-song';
 import { debugLog } from '../content/util';
 import scrobbleCache from '../storage/scrobble-cache';
 import { getScrobbleStatus } from '../storage/wrapper';
+import GitHubScrobbler from '../scrobbler/github-scrobbler';
 
 /**
  * Service to handle all scrobbling behavior.
@@ -23,7 +24,8 @@ export type Scrobbler =
 	| ListenBrainzScrobbler
 	| MalojaScrobbler
 	| WebhookScrobbler
-	| PleromaScrobbler;
+	| PleromaScrobbler
+	| GitHubScrobbler;
 
 /**
  * Scrobblers that are registered and that can be bound.
@@ -35,6 +37,7 @@ const registeredScrobblers = [
 	new MalojaScrobbler(),
 	new WebhookScrobbler(),
 	new PleromaScrobbler(),
+	new GitHubScrobbler()
 ];
 
 export type ScrobblerLabel =
@@ -43,7 +46,8 @@ export type ScrobblerLabel =
 	| 'Libre.fm'
 	| 'Maloja'
 	| 'Webhook'
-	| 'Pleroma';
+	| 'Pleroma'
+	| 'GitHub';
 
 /**
  * Check if scrobbler is in given array of scrobblers.

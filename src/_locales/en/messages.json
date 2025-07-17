@@ -271,6 +271,22 @@
         "message": "Custom webhook label",
         "description": "Input label"
     },
+    "accountsGitHubRepository": {
+        "message": "GitHub Repository",
+        "description": "Input label"
+    },
+    "accountsGitHubRepositoryPlaceholder": {
+        "message": "web-scrobbler/web-scrobbler",
+        "description": "Input label"
+    },
+    "accountsGitHubPAT": {
+        "message": "GitHub PAT",
+        "description": "Input label"
+    },
+    "accountsGitHubPATPlaceholder": {
+        "message": "github_pat_XXXXXXXXXXXXXXXX",
+        "description": "Input label"
+    },
     "accountsAddWebhook": {
         "message": "Add Webhook",
         "description": "Button label"
